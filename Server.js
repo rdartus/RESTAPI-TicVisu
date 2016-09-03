@@ -5,7 +5,10 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 
 //MongoDB
-
+var uristring = 
+  process.env.MONGODB_URI || 
+  'mongodb://<test>:<test1>@ds021046.mlab.com:21046/heroku_g4j7v88m';
+  
 mongoose.connect('mongodb://localhost:27017/VisuDb');
 
 //Express
