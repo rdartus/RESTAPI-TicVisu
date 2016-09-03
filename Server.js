@@ -7,10 +7,15 @@ var bodyParser = require('body-parser');
 //MongoDB
 var uristring = 
   process.env.MONGODB_URI || 
-  'mongodb://<test>:<test1>@ds021046.mlab.com:21046/heroku_g4j7v88m';
+  'mongodb://test:test1@ds021046.mlab.com:21046/heroku_g4j7v88m';
   
-mongoose.connect('mongodb://localhost:27017/VisuDb');
-
+mongoose.connect(uristring, function (err, res) {
+  if (err) { 
+    console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+  } else {
+    console.log ('Succeeded connected to: ' + uristring);
+  }
+});
 //Express
 
 var app = express();
